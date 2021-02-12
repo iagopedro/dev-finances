@@ -6,3 +6,7 @@ Basta fazer um clone do repositório e executar o arquivo "index.html".
 ![Desktop](./assets/dev_finances-desktop_view.png)
 # Mobile
 ![Mobile](./assets/dev_finances-mobile_view.png)
+# Tecnologias
+- HTML
+- CSS
+- Javascript
