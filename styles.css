@@ -152,14 +152,13 @@ button:hover {
 .transaction {
   display: block;
   margin-bottom: 10rem;
+  overflow-x: auto;
 }
 
 .data-table {
   width: min(100%, 100vw);
   border-spacing: 0 0.5rem;
   color: #969cb3;
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 table thead th:first-child,
