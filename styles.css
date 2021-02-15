@@ -155,10 +155,11 @@ button:hover {
 }
 
 .data-table {
-  width: 100%;
+  width: min(100%, 100vw);
   border-spacing: 0 0.5rem;
   color: #969cb3;
-  overflow-x: scroll;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 table thead th:first-child,
