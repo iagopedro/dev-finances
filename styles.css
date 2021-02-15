@@ -276,7 +276,7 @@ td.expense {
 /* Footer --------------------------- */
 
 footer {
-  padding: 1rem;
+  padding: .4rem;
   color: white;
   background: #2d4a22;
   position: fixed;
@@ -285,10 +285,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-footer img {
-  height: .9rem;
 }
 
 
