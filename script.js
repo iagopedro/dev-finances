@@ -117,9 +117,11 @@ const Utils = {
     value = Number(value) * 100;
 
     // Forma mais complexa, usando regex:
-    // value = Number(value.replace(/\,\,/g, "")) * 100
+    // value = Number(value.replace(/\,?\,?/g, "")) * 100
+    // Mas não é necessária, pois a ideia é pegar apenas os números,
+    // e o input com type=number já entrega dessa forma
     
-    return value;
+    return Math.round(value);
   },
 
   formatDate(date) {
@@ -223,6 +225,5 @@ const App = {
     this.init();
   },
 }
-
 
 App.init();

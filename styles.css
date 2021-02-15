@@ -36,6 +36,7 @@ body {
 .container {
   width: min(90vw, 800px);
   margin: auto;
+  position: relative;
 }
 
 /* Header --------------------------- */
@@ -149,14 +150,14 @@ button:hover {
 
 .transaction {
   display: block;
-  overflow-x: auto;
+  margin-bottom: 10rem;
 }
 
 .data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
   color: #969cb3;
-
+  overflow: auto;
 }
 
 table thead th:first-child,
@@ -275,10 +276,19 @@ td.expense {
 /* Footer --------------------------- */
 
 footer {
-  text-align: center;
-  padding: 4rem 0 2rem;
-  color: var(--dark-blue);
-  opacity: 0.6;
+  padding: 1rem;
+  color: white;
+  background: #2d4a22;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer img {
+  height: .9rem;
 }
 
 
