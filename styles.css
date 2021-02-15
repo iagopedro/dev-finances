@@ -34,7 +34,8 @@ body {
 }
 
 .container {
-  width: min(90vw, 800px);
+  width: min(100vw, 800px);
+  padding: 1rem;
   margin: auto;
   position: relative;
 }
@@ -285,9 +286,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
-
-
 
 /* Responsive ------------------------- */
 
@@ -300,5 +300,9 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+  }
+
+  footer {
+    display: flex;
   }
 }
