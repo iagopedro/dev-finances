@@ -229,6 +229,7 @@ td.expense {
   padding: 2.4rem;
   position: relative;
   z-index: 1;
+  width: min(100vw, 570px);
 }
 
 /* Form --------------------------- */
