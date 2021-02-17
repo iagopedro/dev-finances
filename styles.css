@@ -21,7 +21,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.sr-only {
+.sr-only { /* Truque para fazer o elemento "invisível", mantendo a acessibilidade */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -34,7 +34,7 @@ body {
 }
 
 .container {
-  width: min(100vw, 800px);
+  width: min(100vw, 80rem);
   padding: 1rem;
   margin: auto;
   position: relative;
@@ -151,12 +151,13 @@ button:hover {
 
 .transaction {
   display: block;
+  width: 100%;
   margin-bottom: 10rem;
   overflow-x: auto;
 }
 
 .data-table {
-  width: min(100%, 100vw);
+  width: 100%;
   border-spacing: 0 0.5rem;
   color: #969cb3;
 }
