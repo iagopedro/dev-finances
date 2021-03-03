@@ -1,15 +1,9 @@
 const Modal = {
-  open() {
+  toggle() {
     document
     .querySelector('.modal-overlay')
     .classList
-    .add('active')
-  },
-  close() {
-    document
-    .querySelector('.modal-overlay')
-    .classList
-    .remove('active')
+    .toggle('active')
   },
 };
 
@@ -202,7 +196,7 @@ const Form = {
       const transaction = this.formatValues();
       this.saveTransaction(transaction);  
       this.clearFields();
-      Modal.close();
+      Modal.toggle();
     } catch (error) {
       alert(error.message);
     }
