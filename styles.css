@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* color: rgb(207, 187, 0) */
 }
 
 html {
@@ -125,7 +126,6 @@ button:hover {
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
   margin-bottom: 2rem;
-  color: var(--dark-blue);
 }
 
 .card h3 {

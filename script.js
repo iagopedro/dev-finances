@@ -1,3 +1,9 @@
+const totalBox = document.querySelector('.total');
+const colorRed = '#e92929';
+const colorGreen = '#49aa26';
+
+
+
 const Modal = {
   toggle() {
     document
@@ -56,7 +62,17 @@ const Transaction = {
     let income = this.incomes();
     let expense = this.expenses();
 
-    return total = income + expense;;
+    total = income + expense;
+
+    if(total < 0) {
+      totalBox.style.backgroundColor = colorRed;
+    } else if (total == 0) {
+      totalBox.style.backgroundColor = 'rgb(207, 187, 0)';
+    } else {
+      totalBox.style.backgroundColor = colorGreen;
+    }
+
+    return total;
   },
 };
 
