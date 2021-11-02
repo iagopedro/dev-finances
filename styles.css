@@ -92,6 +92,14 @@ button:hover {
 .button.new {
   display: inline-block;
   margin: .8rem 0;
+  background: var(--green);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.button.new:hover {
+  background: var(--light-green);
 }
 
 .button.cancel {
@@ -143,7 +151,7 @@ button:hover {
 }
 
 .card.total {
-  background: var(--green);
+  /* background: linear-gradient(to right, rgb(143, 250, 2), var(--light-green)); */
   color: white;
 }
 
@@ -252,6 +260,7 @@ td.expense {
 
 .input-group {
   margin-top: 0.8rem;
+  flex-direction: row;
 }
 
 .input-group .help {
@@ -274,6 +283,12 @@ td.expense {
 
 .input-group.actions button {
   font-size: 1.2rem;
+}
+
+.signal-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Footer --------------------------- */

@@ -1,9 +1,3 @@
-const totalBox = document.querySelector('.total');
-const colorRed = '#e92929';
-const colorGreen = '#49aa26';
-
-
-
 const Modal = {
   toggle() {
     document
@@ -41,7 +35,8 @@ const Transaction = {
     let income = 0;
     this.all.forEach(transaction => {
       if(transaction.amount > 0) {
-        income += transaction.amount
+        amount = Number(transaction.amount)
+        income += amount
       }
     })
     return income;
@@ -51,7 +46,8 @@ const Transaction = {
     let expense = 0;
     this.all.forEach(transaction => {
       if(transaction.amount < 0) {
-        expense += transaction.amount
+        amount = Number(transaction.amount)
+        expense += amount
       }
     })
     return expense;
@@ -62,15 +58,11 @@ const Transaction = {
     let income = this.incomes();
     let expense = this.expenses();
 
+    console.table({income, expense})
+
     total = income + expense;
 
-    if(total < 0) {
-      totalBox.style.backgroundColor = colorRed;
-    } else if (total == 0) {
-      totalBox.style.backgroundColor = 'rgb(207, 187, 0)';
-    } else {
-      totalBox.style.backgroundColor = colorGreen;
-    }
+    console.log(total)
 
     return total;
   },
@@ -117,6 +109,19 @@ const DOM = {
       .innerHTML = Utils.formatCurrency(Transaction.total())
   },
 
+  updateTotalBoxColor() {
+    const totalBox = document.querySelector('.total')
+    const totalValue = Transaction.total()
+
+    if(totalValue == 0) {
+      totalBox.style.background = 'linear-gradient(to right, rgb(143, 250, 2), var(--light-green))'
+    } else if (totalValue > 0) {
+      totalBox.style.background = '#49aa26'
+    } else if(totalValue < 0) {
+      totalBox.style.background = '#e92929'
+    }
+  },
+
   clearTransactions() {
     this.transactionsContainer.innerHTML = '';
   }
@@ -141,8 +146,6 @@ const Utils = {
   },
 
   formatCurrency(value) {
-    const signal = Number(value) < 0 ? '-' : '';
-
     value = String(value).replace(/\D/g, ""); // regex que pega tudo que não seja número
 
     value = Number(value) / 100;
@@ -152,39 +155,48 @@ const Utils = {
       currency: 'BRL',
     });
 
-    return signal + value;
+    return value;
   },
 
+  includeSignal(value, signalSelection) {
+    signal = signalSelection === 'negative' ? '-' : '';
+
+    return signal + value
+  }
 }
 
 const Form = {
   description: document.querySelector('input#description'),
   amount: document.querySelector('input#amount'),
   date: document.querySelector('input#date'),
+  signalSelection: document.querySelector('select#signalSelection'),
 
   getValues() {
     return {
       description: this.description.value,
       amount: this.amount.value,
       date: this.date.value,
+      signalSelection: this.signalSelection.value
     }
   },
 
   validateFields() {
-    const { description, amount, date } = this.getValues();
+    const { description, amount, date, signalSelection } = this.getValues();
 
     if( description.trim() === '' ||
         amount.trim() === '' ||
-        date.trim() === ''
+        date.trim() === '' ||
+        signalSelection.trim() === ''
     ) {
       throw new Error('Por favor, preencha todos os campos.')
     };
   },
 
   formatValues() {
-    let { description, amount, date } = this.getValues();
+    let { description, amount, date, signalSelection } = this.getValues();
 
     amount = Utils.formatAmount(amount);
+    amount = Utils.includeSignal(amount, signalSelection)
     date = Utils.formatDate(date);
 
     return {
@@ -202,6 +214,7 @@ const Form = {
     this.description.value = '';
     this.amount.value = '';
     this.date.value = '';
+    this.signalSelection.value = 'positive';
   },
 
   submit(event) {
@@ -227,6 +240,7 @@ const App = {
     });
     
     DOM.updateBalance();
+    DOM.updateTotalBoxColor()
 
     Storage.set(Transaction.all);
   },
