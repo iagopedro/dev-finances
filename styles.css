@@ -152,7 +152,7 @@ button:hover {
 
 .card.total {
   /* background: linear-gradient(to right, rgb(143, 250, 2), var(--light-green)); */
-  color: white;
+  color: black;
 }
 
 /* Table --------------------------- */

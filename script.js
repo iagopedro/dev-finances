@@ -114,7 +114,7 @@ const DOM = {
     const totalValue = Transaction.total()
 
     if(totalValue == 0) {
-      totalBox.style.background = 'linear-gradient(to right, rgb(143, 250, 2), var(--light-green))'
+      totalBox.style.background = 'white'
     } else if (totalValue > 0) {
       totalBox.style.background = '#49aa26'
     } else if(totalValue < 0) {
