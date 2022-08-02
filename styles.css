@@ -258,6 +258,13 @@ td.expense {
   width: 100%
 }
 
+.form form select {
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+  width: 100%
+}
+
 .input-group {
   margin-top: 0.8rem;
   flex-direction: row;

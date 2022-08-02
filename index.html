@@ -110,15 +110,14 @@
               placeholder="0,00"
               oninput="validity.valid||(value='')"
             >
-            <select name="signalSelection" id="signalSelection">
-              <option value="positive" selected="selected">Positivo</option>
-              <option value="negative">Negativo</option>
-            </select>
-            <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
           </div>
-
+          
           <div class="input-group">
-            
+            <select name="signalSelection" id="signalSelection">
+              <option value="" disabled selected hidden>Entrada ou saída?</option>
+              <option value="positive">Entrada</option>
+              <option value="negative">Saída</option>
+            </select>           
           </div>
 
           <div class="input-group">
