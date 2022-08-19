@@ -158,8 +158,8 @@ const Utils = {
     return value;
   },
 
-  includeSignal(value, signalSelection) {
-    signal = signalSelection === 'negative' ? '-' : '';
+  includeSignal(value, transactionType) {
+    signal = transactionType === 'negative' ? '-' : '';
 
     return signal + value
   }
@@ -169,34 +169,34 @@ const Form = {
   description: document.querySelector('input#description'),
   amount: document.querySelector('input#amount'),
   date: document.querySelector('input#date'),
-  signalSelection: document.querySelector('select#signalSelection'),
+  transactionType: document.querySelector('select#transactionType'),
 
   getValues() {
     return {
       description: this.description.value,
       amount: this.amount.value,
       date: this.date.value,
-      signalSelection: this.signalSelection.value
+      transactionType: this.transactionType.value
     }
   },
 
   validateFields() {
-    const { description, amount, date, signalSelection } = this.getValues();
+    const { description, amount, date, transactionType } = this.getValues();
 
     if( description.trim() === '' ||
         amount.trim() === '' ||
         date.trim() === '' ||
-        signalSelection.trim() === ''
+        transactionType.trim() === ''
     ) {
       throw new Error('Por favor, preencha todos os campos.')
     };
   },
 
   formatValues() {
-    let { description, amount, date, signalSelection } = this.getValues();
+    let { description, amount, date, transactionType } = this.getValues();
 
     amount = Utils.formatAmount(amount);
-    amount = Utils.includeSignal(amount, signalSelection)
+    amount = Utils.includeSignal(amount, transactionType)
     date = Utils.formatDate(date);
 
     return {
@@ -214,7 +214,7 @@ const Form = {
     this.description.value = '';
     this.amount.value = '';
     this.date.value = '';
-    this.signalSelection.value = 'positive';
+    this.transactionType.value = 'positive';
   },
 
   submit(event) {

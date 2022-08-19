@@ -58,9 +58,11 @@ header {
 
 h2 {
   margin-top: 3.2rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.6rem;
   color: var(--dark-blue);
   font-weight: normal;
+  text-align: center;
+  font-size: 2rem;
 }
 
 /* Links & Buttons --------------------------- */
@@ -263,6 +265,20 @@ td.expense {
   border-radius: 0.2rem;
   padding: 0.8rem;
   width: 100%
+}
+
+.transactionTypeBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transactionType {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .input-group {

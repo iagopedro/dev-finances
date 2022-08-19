@@ -77,8 +77,32 @@
   <div class="modal-overlay">
     <div class="modal">
       <div class="form">
+
         <h2>Nova Transação</h2>
-        <form action="" onsubmit="Form.submit(event)">
+
+        <form onsubmit="Form.submit(event)">
+          <div class="transactionTypeBox">
+            <div class="transactionType">            
+              <label for="transactionType">Entrada</label>
+              <input 
+                type="radio" 
+                name="transactionType" 
+                id="transactionType"
+                value="positive"
+              >
+            </div>
+  
+            <div class="transactionType">            
+              <label for="transactionType">Saída</label>
+              <input 
+                type="radio" 
+                name="transactionType" 
+                id="transactionType"
+                value="negative"
+              >
+            </div>
+          </div>
+
           <div class="input-group">
             <label 
               class="sr-only"
@@ -110,14 +134,6 @@
               placeholder="0,00"
               oninput="validity.valid||(value='')"
             >
-          </div>
-          
-          <div class="input-group">
-            <select name="signalSelection" id="signalSelection">
-              <option value="" disabled selected hidden>Entrada ou saída?</option>
-              <option value="positive">Entrada</option>
-              <option value="negative">Saída</option>
-            </select>           
           </div>
 
           <div class="input-group">
