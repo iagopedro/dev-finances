@@ -114,7 +114,7 @@ const DOM = {
     const totalValue = Transaction.total()
 
     if(totalValue == 0) {
-      totalBox.style.background = 'white'
+      totalBox.style.background = '#E3F4F4'
     } else if (totalValue > 0) {
       totalBox.style.background = '#49aa26'
     } else if(totalValue < 0) {
